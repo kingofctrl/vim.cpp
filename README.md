@@ -1,10 +1,10 @@
 Build vim editor in Linux into an effective C++ programming IDE
 ===============================================
 
-- [Intro](#intro)
+- [Introduction](#introduction)
 - [Installation](#installation)
 - [Included Plugins](#included-plugins)
-- [Mapping keys](#mapping-keys)
+- [Keymaps](#Keymaps)
     - [Basic](#basic)
         - [Normal mode](#normal-mode)
         - [Insert mode](#insert-mode)
@@ -14,7 +14,7 @@ Build vim editor in Linux into an effective C++ programming IDE
         - [Insert mode](#insert-mode-1)
         - [Visual mode](#visual-mode-1)
 
-Intro
+Introduction
 -----
 
 可能这是最简单的将 vim 构建为 IDE 的项目。
@@ -63,7 +63,7 @@ I think you should read the docs of these plugins to use them efficiently.
 - [vim-instant-markdown](https://github.com/suan/vim-instant-markdown): Instant Markdown previews from VIm
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe): A code-completion engine for Vim
 
-Mapping keys
+Keymaps
 -----
 
 The `<leader>` key is `;`
