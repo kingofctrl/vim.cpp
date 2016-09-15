@@ -10,9 +10,9 @@ Build vim editor in Linux into an effective C++ programming IDE
         - [Insert mode mappings](#insert-mode-mappings)
         - [Visual mode mappings](#visual-mode-mappings)
     - [Plugins mappings](#plugins-mappings)
-        - [Normal mode mappings](#normal-mode-mappings)
-        - [Insert mode mappings](#insert-mode-mappings)
-        - [Visual mode mappings](#visual-mode-mappings)
+        - [Normal mode mappings](#normal-mode-mappings-1)
+        - [Insert mode mappings](#insert-mode-mappings-1)
+        - [Visual mode mappings](#visual-mode-mappings-1)
 
 Intro
 -----
