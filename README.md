@@ -4,7 +4,7 @@ Build vim editor in Linux into an effective C++ programming IDE
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Included Plugins](#included-plugins)
-- [Keymaps](#Keymaps)
+- [Keymaps](#keymaps)
     - [Basic](#basic)
         - [Normal mode](#normal-mode)
         - [Insert mode](#insert-mode)
