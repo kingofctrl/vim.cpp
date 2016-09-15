@@ -4,15 +4,15 @@ Build vim editor in Linux into an effective C++ programming IDE
 - [Intro](#intro)
 - [Installation](#installation)
 - [Included Plugins](#included-plugins)
-- [Key Mappings](#key-mappings)
-    - [Basic mappings](#basic-mappings)
-        - [Normal mode mappings](#normal-mode-mappings)
-        - [Insert mode mappings](#insert-mode-mappings)
-        - [Visual mode mappings](#visual-mode-mappings)
-    - [Plugins mappings](#plugins-mappings)
-        - [Normal mode mappings](#normal-mode-mappings-1)
-        - [Insert mode mappings](#insert-mode-mappings-1)
-        - [Visual mode mappings](#visual-mode-mappings-1)
+- [Mapping keys](#mapping-keys)
+    - [Basic](#basic)
+        - [Normal mode](#normal-mode)
+        - [Insert mode](#insert-mode)
+        - [Visual mode](#visual-mode)
+    - [Plugins](#plugins)
+        - [Normal mode](#normal-mode-1)
+        - [Insert mode](#insert-mode-1)
+        - [Visual mode](#visual-mode-1)
 
 Intro
 -----
@@ -63,14 +63,14 @@ I think you should read the docs of these plugins to use them efficiently.
 - [vim-instant-markdown](https://github.com/suan/vim-instant-markdown): Instant Markdown previews from VIm
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe): A code-completion engine for Vim
 
-Key Mappings
+Mapping keys
 -----
 
 The `<leader>` key is `;`
 
-### Basic mappings
+### Basic
 
-#### Normal mode mappings
+#### Normal mode
 
 - `;w` Write (save) the file, but don't exit
 - `;q` Quit
@@ -87,7 +87,7 @@ The `<leader>` key is `;`
 - `<F8>` Change color scheme
 - `<F11>` Fullscreen
 
-#### Insert mode mappings
+#### Insert mode
 
 - `<C-s>` Write (save) the file, but don't exit
 - `<C-h>` Move left
@@ -95,13 +95,13 @@ The `<leader>` key is `;`
 - `<C-k>` Move up
 - `<C-l>` move right
 
-#### Visual mode mappings
+#### Visual mode
 
 - `;y` Copy
 
-### Plugins mappings
+### Plugins
 
-#### Normal mode mappings
+#### Normal mode
 
 - `;fs` Switch between companion source files (e.g. ".h" and ".cpp")
 - `<F2>` Toogle Tagbar visible
@@ -116,13 +116,13 @@ The `<leader>` key is `;`
 - `;jc` Go to declaration
 - `;jd` Go to definition
 
-#### Insert mode mappings
+#### Insert mode
 
 - `<F2>` Toogle Tagbar visible
 - `<F3>` Toogle NERD-Tree visible
 - `<F4>` Toogle minibufexpl visble
 
-#### Visual mode mappings
+#### Visual mode
 
 - `<C-k>` Move current line/selections up
 - `<C-j>` Move current line/selections down
