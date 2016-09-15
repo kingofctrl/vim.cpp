@@ -10,36 +10,36 @@ set nocompatible
 " ============================================================================
 
 silent! if plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-easy-align',       { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/vim-tomorrow-theme'
 
 " Edit
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'matze/vim-move'
 
 " Browsing
-" Plug 'vim-airline/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'derekwyatt/vim-fswitch', { 'for': 'cpp' }
 Plug 'derekwyatt/vim-protodef', { 'for': 'cpp' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 augroup nerd_loader
-  autocmd!
-  autocmd VimEnter * silent! autocmd! FileExplorer
-  autocmd BufEnter,BufNew *
-        \  if isdirectory(expand('<amatch>'))
-        \|   call plug#load('nerdtree')
-        \|   execute 'autocmd! nerd_loader'
-        \| endif
+autocmd!
+autocmd VimEnter * silent! autocmd! FileExplorer
+autocmd BufEnter,BufNew *
+    \  if isdirectory(expand('<amatch>'))
+    \|   call plug#load('nerdtree')
+    \|   execute 'autocmd! nerd_loader'
+    \| endif
 augroup END
 
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle'      }
 
 " Lang
-Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'sheerun/vim-polyglot'
 
 " Lint
@@ -52,13 +52,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py --clang-completer
-  endif
+if a:info.status == 'installed' || a:info.force
+!./install.py --clang-completer
+endif
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
@@ -70,7 +66,7 @@ endif
 " BASIC SETTINGS {{{
 " ============================================================================
 
-let mapleader      = ';'
+let mapleader = ';'
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -78,27 +74,43 @@ set backspace=indent,eol,start
 "store lots of :cmdline history
 set history=500
 
+" show line numbers
 set nu
+
+" autoindent when starting new line
 set autoindent
 set smartindent
 set lazyredraw
-set ignorecase smartcase
+
+" ignore case when searching
+set ignorecase 
+
+" don't ignore case when search has capital letter
+set smartcase
+
+" enable highlighted case-insensitive incremential search
 set incsearch
+
+" enble search highlighting
 set hlsearch
+
+" always show window statuses
 set laststatus=2
+
+" show the size of block one selected in visual mode
 set showcmd
+
+" hide buffers
 set hidden
 set visualbell
+
+" indent using four spaces
 set expandtab smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-" set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
-
-set wildmode=list:longest   
-set wildmenu                
-set wildignore=*.o,*.obj,*~ 
+set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 
 set gcr=a:block-blinkon0
 
@@ -106,19 +118,26 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
-
 set guioptions-=m
 set guioptions-=T
 
-fun! ToggleFullscreen()
-	call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
+function! ToggleFullscreen()
+call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
 endf
 map <silent> <F11> :call ToggleFullscreen()<CR>
 "autocmd VimEnter * call ToggleFullscreen()
 
+" show the line and column number of the cursor position
 set ruler
+
+" highlight line under cursor
 set cursorline
 set cursorcolumn
+
+" disable output, vcs, archive, rails, temp and backup files
+set wildignore+=*.o,*.out,*.obj,.git,*.pyc,*.class
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*.swp,*~,._*
 
 set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 
@@ -134,8 +153,8 @@ set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 " Save
 inoremap <C-s>     <C-O>:w<cr>
 nnoremap <C-s>     :w<cr>
-nnoremap <leader>s :w<cr>
 nnoremap <leader>w :w<cr>
+nnoremap <leader>s :w<cr>
 
 " Copy
 vnoremap <Leader>y "+y
@@ -150,9 +169,9 @@ nnoremap <Leader>Q :qa!<cr>
 
 " Movement in insert mode
 inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>a
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>a
 inoremap <C-^> <C-o><C-^>
 
 " ----------------------------------------------------------------------------
@@ -160,25 +179,17 @@ inoremap <C-^> <C-o><C-^>
 " ----------------------------------------------------------------------------
 nnoremap ]q :cnext<cr>zz
 nnoremap [q :cprev<cr>zz
-nnoremap ]l :lnext<cr>zz
-nnoremap [l :lprev<cr>zz
 
-
-" ----------------------------------------------------------------------------
-" Tabs
-" ----------------------------------------------------------------------------
-nnoremap ]t :tabn<cr>
-nnoremap [t :tabp<cr>
 
 " ----------------------------------------------------------------------------
 " <tab> / <s-tab> | Circular windows navigation
 " ----------------------------------------------------------------------------
 nnoremap <tab>   <c-w>w
 nnoremap <S-tab> <c-w>W
-nnoremap <Leader>lw <C-W>l
 nnoremap <Leader>hw <C-W>h
-nnoremap <Leader>kw <C-W>k
 nnoremap <Leader>jw <C-W>j
+nnoremap <Leader>kw <C-W>k
+nnoremap <Leader>lw <C-W>l
 
 
 " ----------------------------------------------------------------------------
@@ -270,6 +281,11 @@ let g:multi_cursor_next_key='<S-n>'
 let g:multi_cursor_skip_key='<S-k>'
 
 " ----------------------------------------------------------------------------
+" vim-move
+" ----------------------------------------------------------------------------
+let g:move_key_modifier = 'C'
+
+" ----------------------------------------------------------------------------
 " vim-indent-guides
 " ----------------------------------------------------------------------------
 let g:indent_guides_enable_on_vim_startup=1
@@ -347,10 +363,6 @@ let g:tagbar_type_cpp = {
 let g:tagbar_sort = 0
 
 " ----------------------------------------------------------------------------
-" Vim-Jinja2-Syntax
-" ----------------------------------------------------------------------------
-
-" ----------------------------------------------------------------------------
 " vim-polyglot
 " ----------------------------------------------------------------------------
 
@@ -364,7 +376,8 @@ let g:syntastic_auto_loc_list = 1
 " ----------------------------------------------------------------------------
 " minibufexpl
 " ----------------------------------------------------------------------------
-map <Leader>bl :MBEToggle<cr>
+inoremap <F4> <esc>:MBEToggle<cr>
+nnoremap <F4> :MBEToggle<cr>
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
 
