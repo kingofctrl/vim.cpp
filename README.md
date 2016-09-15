@@ -29,6 +29,7 @@ Installation
 
 2. Download this vimrc and put it in the ~/ directory.
 
+        curl -Lo ~/.vimrc https://raw.githubusercontent.com/HmyBmny/vimrc/master/.vimrc
 
 3. Install Plugins.
 
