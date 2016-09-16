@@ -57,6 +57,8 @@ Installation
 
 ### Via curl
 
+    curl -o - https://raw.githubusercontent.com/HmyBmny/vimrc/master/install-vim | sh
+
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -67,7 +69,7 @@ Installation
 
 ### Via wget
 
-    wget
+     wget -O - https://raw.githubusercontent.com/HmyBmny/vimrc/master/install-vim | sh
 
 Included Plugins
 -----
