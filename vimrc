@@ -1,13 +1,11 @@
-" ============================================================================
-" .vimrc of Bo Liu {{{
-" ============================================================================
+" >>>>
+" .vimrc of Bo Liu
 
 set nocompatible
 
-" }}}
-" ============================================================================
-" VIM-PLUG BLOCK {{{
-" ============================================================================
+" <<<<
+" >>>>
+" VIM-PLUG BLOCK
 
 silent! if plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
@@ -27,6 +25,7 @@ Plug 'derekwyatt/vim-fswitch', { 'for': 'cpp' }
 Plug 'derekwyatt/vim-protodef', { 'for': 'cpp' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
 augroup nerd_loader
 autocmd!
 autocmd VimEnter * silent! autocmd! FileExplorer
@@ -56,55 +55,55 @@ if a:info.status == 'installed' || a:info.force
 !./install.py --clang-completer
 endif
 endfunction
+
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 call plug#end()
 endif
 
-" }}}
-" ============================================================================
-" BASIC SETTINGS {{{
-" ============================================================================
+" <<<<
+" >>>>
+" BASIC SETTINGS
 
 let mapleader = ';'
 
-" allow backspacing over everything in insert mode
+" Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"store lots of :cmdline history
+" Store lots of :cmdline history
 set history=500
 
-" show line numbers
+" Show line numbers
 set nu
 
-" autoindent when starting new line
+" Autoindent when starting new line
 set autoindent
 set smartindent
 set lazyredraw
 
-" ignore case when searching
+" Ignore case when searching
 set ignorecase 
 
-" don't ignore case when search has capital letter
+" Don't ignore case when search has capital letter
 set smartcase
 
-" enable highlighted case-insensitive incremential search
+" Enable highlighted case-insensitive incremential search
 set incsearch
 
-" enble search highlighting
+" Enble search highlighting
 set hlsearch
 
-" always show window statuses
+" Always show window statuses
 set laststatus=2
 
-" show the size of block one selected in visual mode
+" Show the size of block one selected in visual mode
 set showcmd
 
-" hide buffers
+" Hide buffers
 set hidden
 set visualbell
 
-" indent using four spaces
+" Indent using four spaces
 set expandtab smarttab
 set tabstop=4
 set shiftwidth=4
@@ -127,24 +126,23 @@ endf
 map <silent> <F11> :call ToggleFullscreen()<CR>
 "autocmd VimEnter * call ToggleFullscreen()
 
-" show the line and column number of the cursor position
+" Show the line and column number of the cursor position
 set ruler
 
-" highlight line under cursor
+" Highlight line under cursor
 set cursorline
 set cursorcolumn
 
-" disable output, vcs, archive, rails, temp and backup files
+" Disable output, vcs, archive, rails, temp and backup files
 set wildignore+=*.o,*.out,*.obj,.git,*.pyc,*.class
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.swp,*~,._*
 
 set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 
-" }}}
-" ============================================================================
-" MAPPINGS {{{
-" ============================================================================
+" <<<<
+" >>>>
+" MAPPINGS
 
 " ----------------------------------------------------------------------------
 " Basic mappings
@@ -177,13 +175,14 @@ inoremap <C-^> <C-o><C-^>
 " ----------------------------------------------------------------------------
 " Quickfix
 " ----------------------------------------------------------------------------
+
 nnoremap ]q :cnext<cr>zz
 nnoremap [q :cprev<cr>zz
-
 
 " ----------------------------------------------------------------------------
 " <tab> / <s-tab> | Circular windows navigation
 " ----------------------------------------------------------------------------
+
 nnoremap <tab>   <c-w>w
 nnoremap <S-tab> <c-w>W
 nnoremap <Leader>hw <C-W>h
@@ -191,10 +190,10 @@ nnoremap <Leader>jw <C-W>j
 nnoremap <Leader>kw <C-W>k
 nnoremap <Leader>lw <C-W>l
 
-
 " ----------------------------------------------------------------------------
 " :CopyRTF
 " ----------------------------------------------------------------------------
+
 function! s:colors(...)
   return filter(map(filter(split(globpath(&rtp, 'colors/*.vim'), "\n"),
         \                  'v:val !~ "^/usr/"'),
@@ -205,7 +204,8 @@ endfunction
 " ----------------------------------------------------------------------------
 " <F8> | Color scheme selector
 " ----------------------------------------------------------------------------
-colorscheme solarized
+
+" colorscheme solarized
 function! s:rotate_colors()
   if !exists('s:colors')
     let s:colors = s:colors()
@@ -216,16 +216,17 @@ function! s:rotate_colors()
   redraw
   echo name
 endfunction
+
 nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
 
-" }}}
-" ============================================================================
-" PLUGINS {{{
-" ============================================================================
+" <<<<
+" >>>>
+" PLUGINS
 
 " ----------------------------------------------------------------------------
 " vim-easy-align
 " ----------------------------------------------------------------------------
+
 let g:easy_align_delimiters = {
 \ '>': { 'pattern': '>>\|=>\|>' },
 \ '\': { 'pattern': '\\' },
@@ -269,6 +270,7 @@ nmap gaa ga_
 " ----------------------------------------------------------------------------
 " ultisnips
 " ----------------------------------------------------------------------------
+
 let g:UltiSnipsSnippetDirectories=["mysnippets"]
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
@@ -277,17 +279,20 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 " ----------------------------------------------------------------------------
 " vim-multiple-cursors
 " ----------------------------------------------------------------------------
+
 let g:multi_cursor_next_key='<S-n>'
 let g:multi_cursor_skip_key='<S-k>'
 
 " ----------------------------------------------------------------------------
 " vim-move
 " ----------------------------------------------------------------------------
+
 let g:move_key_modifier = 'C'
 
 " ----------------------------------------------------------------------------
 " vim-indent-guides
 " ----------------------------------------------------------------------------
+
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
@@ -295,11 +300,13 @@ let g:indent_guides_guide_size=1
 " ----------------------------------------------------------------------------
 " vim-fswitch
 " ----------------------------------------------------------------------------
+
 nmap <silent> <Leader>fs :FSHere<cr>
 
 " ----------------------------------------------------------------------------
 " vim-protodef
 " ----------------------------------------------------------------------------
+
 let g:protodefprotogetter='~/.vim/plugged/vim-protodef/pullproto.pl'
 let g:disable_protodef_sorting=1
 
@@ -310,6 +317,7 @@ let g:disable_protodef_sorting=1
 " ----------------------------------------------------------------------------
 " nerdtree
 " ----------------------------------------------------------------------------
+
 inoremap <F3> <esc>:NERDTreeToggle<CR>
 nnoremap <F3> :NERDTreeToggle<CR>
 let NERDTreeWinSize=22
@@ -321,6 +329,7 @@ let NERDTreeAutoDeleteBuffer=1
 " ----------------------------------------------------------------------------
 " tarbar
 " ----------------------------------------------------------------------------
+
 let tagbar_left=1
 inoremap <F2> <esc>:TagbarToggle<cr>
 nnoremap <F2> :TagbarToggle<cr>
@@ -369,6 +378,7 @@ let g:tagbar_sort = 0
 " ----------------------------------------------------------------------------
 " syntastic
 " ----------------------------------------------------------------------------
+
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -376,6 +386,7 @@ let g:syntastic_auto_loc_list = 1
 " ----------------------------------------------------------------------------
 " minibufexpl
 " ----------------------------------------------------------------------------
+
 inoremap <F4> <esc>:MBEToggle<cr>
 nnoremap <F4> :MBEToggle<cr>
 nnoremap ]b :bnext<cr>
@@ -384,6 +395,7 @@ nnoremap [b :bprev<cr>
 " ----------------------------------------------------------------------------
 " gundo.vim
 " ----------------------------------------------------------------------------
+
 nnoremap <Leader>ud :GundoToggle<CR>
 set sessionoptions="blank,globals,localoptions,tabpages,sesdir,folds,help,options,resize,winpos,winsize"
 if v:version >= 703
@@ -396,17 +408,20 @@ endif
 " ----------------------------------------------------------------------------
 " ctrlsf.vim
 " ----------------------------------------------------------------------------
+
 nnoremap <c-f> :CtrlSF<CR>
 
 " ----------------------------------------------------------------------------
 " ctrlp.vim
 " ----------------------------------------------------------------------------
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " ----------------------------------------------------------------------------
 " vim-instant-markdown
 " ----------------------------------------------------------------------------
+
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
@@ -415,6 +430,7 @@ nnoremap <Leader>md :InstantMarkdownPreview<CR>
 " ----------------------------------------------------------------------------
 " YouCompleteMe
 " ----------------------------------------------------------------------------
+
 nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
@@ -428,4 +444,4 @@ let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
 
-" }}}
+" <<<<
