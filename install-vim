@@ -5,9 +5,7 @@ curl --insecure -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # .vimrc
-#curl -fLo ~/.vimrc \
-    #https://raw.githubusercontent.com/HmyBmny/vimrc/master/vimrc
 curl -fLo ~/.vimrc \
-    https://raw.githubusercontent.com/HmyBmny/vimrc/master/tmp
+    https://raw.githubusercontent.com/HmyBmny/vimrc/master/vimrc
 
 vim +PlugInstall
