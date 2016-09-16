@@ -16,6 +16,11 @@ vimrc
         - [Normal mode](#normal-mode-1)
         - [Insert mode](#insert-mode-1)
         - [Visual mode](#visual-mode-1)
+- [Options](#options)
+    - [Building Vim from source](#building-Vim-from-source)
+- [FAQ](#faq)
+- [Contact](#contact)
+- [License](#license)
 
 Introduction
 -----
@@ -24,10 +29,13 @@ Building vim editor in Linux into an effective C/C++ programming IDE, supporting
 
 Features
 -----
+
 - Automatic download the latest version of libclang and compile the ycm_core library that YCM needs
-- Instantly preview markdown files
+- Supported all GNU/Linux
+- Semantic auto-completion
 - Syntax checking 
 - Preservation of historical records
+- Instantly preview markdown files
 - More
 
 Installation
@@ -36,8 +44,8 @@ Installation
 ### Requirements
 
 - ensure that your version of Vim is at least 7.3.598 and that it has support for Python 2 or Python 3 scripting.
-- npm -g install instant-markdown-d
-- xdg-utils
+- npm -g install instant-markdown-d (For plugin vim-instant-markdown)
+- xdg-utils (For plugin vim-instant-markdown)
 - nodejs-legacy (For Debian-based systems)
 - wmctrl (Fullscreen needs)
 - cmake (Compile the ycm_core library)
@@ -142,3 +150,51 @@ The `<leader>` key is `;`
 
 - `<C-k>` Move current line/selections up
 - `<C-j>` Move current line/selections down
+
+### Options
+
+#### Building Vim from source
+
+- Install all the following libraries
+
+    `ruby-devel` `python-devel` `python3-devel` `perl-devel` `lua-devel` `ncurses-devel` `libX11-devel` `gtk2-devel` `xorg-x11-devel`
+
+- Remove vim if you have it already
+- Building Vim from source
+
+    - Add/remove the flags above to fit your setup. For example, you can leave out enable-luainterp if you don't plan on writing any Lua.
+
+            cd ~
+            git clone https://github.com/vim/vim.git
+            cd vim
+            ./configure --with-features=huge \
+                        --enable-multibyte \
+                        --enable-rubyinterp \
+                        --enable-pythoninterp \
+                        --with-python-config-dir=/usr/lib/python2.7/config \
+                        --enable-perlinterp \
+                        --enable-luainterp \
+                        --enable-gui=gtk2 --enable-cscope --prefix=/usr
+            make
+            sudo make install
+
+    - Type the following in Vim: `:echo has('python')`. If the output is 1, then the version of Vim with Python support. If it's 0, then get a version of Vim with Python support.
+
+FAQ
+-----
+
+### Can't build vim correctly
+
+This wiki [Building-Vim-from-source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source) may be helpful for you. 
+
+Contact
+-----
+
+If I have any mistakes in grammar or vocabulary, please point out
+
+If you have feature suggestions, please use the [issue
+tracker][tracker].
+
+License
+-----
+MIT
