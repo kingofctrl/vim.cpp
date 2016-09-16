@@ -408,7 +408,7 @@ set sessionoptions="blank,globals,localoptions,tabpages,sesdir,folds,help,option
 
 if v:version >= 703
     if !findfile('~/.vim/undofiles')
-        mkdir -p ~/.vim/undofiles
+        !mkdir -p ~/.vim/undofiles
     endif
     set undodir=~/.vim/undofiles
     set undofile
