@@ -19,7 +19,7 @@ vimrc
 - [Options](#options)
     - [Building Vim from source](#building-vim-from-source)
     - [Using vim as a python IDE](#using-vim-as-a-python-ide)
-    - [Using vim as a Go IDE](#using-vim-as-a-python-ide)
+    - [Using vim as a Go IDE](#using-vim-as-a-go-ide)
 - [FAQ](#faq)
 - [Contact](#contact)
 - [License](#license)
