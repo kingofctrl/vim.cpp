@@ -207,7 +207,7 @@ Contact
 
 If I have any mistakes in grammar or vocabulary, please point out. Thanks!
 
-If you have feature suggestions, please open an [issue](#https://github.com/HmyBmny/vimrc/issues).
+If you have feature suggestions, please open [Issues](#https://github.com/HmyBmny/vimrc/issues) or [Pull requests](#https://github.com/HmyBmny/vimrc/pulls).
 
 License
 -----
