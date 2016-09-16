@@ -8,6 +8,7 @@ set nocompatible
 " VIM-PLUG BLOCK
 
 silent! if plug#begin('~/.vim/plugged')
+
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " Colors
@@ -123,8 +124,9 @@ set guioptions-=T
 function! ToggleFullscreen()
 call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
 endf
+
 map <silent> <F11> :call ToggleFullscreen()<CR>
-autocmd VimEnter * call ToggleFullscreen()
+" autocmd VimEnter * call ToggleFullscreen()
 
 " Show the line and column number of the cursor position
 set ruler
@@ -206,6 +208,7 @@ endfunction
 " ----------------------------------------------------------------------------
 
 " colorscheme solarized
+
 function! s:rotate_colors()
   if !exists('s:colors')
     let s:colors = s:colors()
@@ -320,6 +323,7 @@ let g:disable_protodef_sorting=1
 
 inoremap <F3> <esc>:NERDTreeToggle<CR>
 nnoremap <F3> :NERDTreeToggle<CR>
+
 let NERDTreeWinSize=22
 let NERDTreeWinPos="right"
 let NERDTreeShowHidden=0
@@ -330,10 +334,12 @@ let NERDTreeAutoDeleteBuffer=1
 " tarbar
 " ----------------------------------------------------------------------------
 
-let tagbar_left=1
 inoremap <F2> <esc>:TagbarToggle<cr>
 nnoremap <F2> :TagbarToggle<cr>
+
+let tagbar_left=1
 let tagbar_width=32
+let g:tagbar_sort = 0
 let g:tagbar_compact=1
 let g:tagbar_type_cpp = {
      \ 'ctagstype' : 'c++',
@@ -369,7 +375,6 @@ let g:tagbar_type_cpp = {
          \ 'union'     : 'u'
      \ }
 \ }
-let g:tagbar_sort = 0
 
 " ----------------------------------------------------------------------------
 " vim-polyglot
@@ -389,6 +394,7 @@ let g:syntastic_auto_loc_list = 1
 
 inoremap <F4> <esc>:MBEToggle<cr>
 nnoremap <F4> :MBEToggle<cr>
+
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
 
@@ -397,11 +403,15 @@ nnoremap [b :bprev<cr>
 " ----------------------------------------------------------------------------
 
 nnoremap <Leader>ud :GundoToggle<CR>
+
 set sessionoptions="blank,globals,localoptions,tabpages,sesdir,folds,help,options,resize,winpos,winsize"
+
 if v:version >= 703
+    if !findfile('~/.vim/undofiles')
+        mkdir -p ~/.vim/undofiles
+    endif
     set undodir=~/.vim/undofiles
     set undofile
-
     set colorcolumn=+1 
 endif
 
@@ -423,23 +433,28 @@ let g:ctrlp_cmd = 'CtrlP'
 " ----------------------------------------------------------------------------
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
+
 nnoremap <Leader>md :InstantMarkdownPreview<CR>
 
 " ----------------------------------------------------------------------------
 " YouCompleteMe
 " ----------------------------------------------------------------------------
 
+set completeopt-=preview
+
 nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+inoremap <leader>; <C-x><C-o>
+
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
 highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+
 let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_collect_identifiers_from_tags_files=0
-inoremap <leader>; <C-x><C-o>
-set completeopt-=preview
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
