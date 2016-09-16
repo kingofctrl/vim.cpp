@@ -1,4 +1,4 @@
-vimrc
+C/C++ IDE
 ===============================================
 
 - [Introduction](#introduction)
