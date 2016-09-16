@@ -3,8 +3,8 @@ vimrc
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Requirements](#requirements)
 - [Installation](#installation)
-    - [Requirements](#requirements)
     - [Using curl](#using-curl)
 - [Included Plugins](#included-plugins)
 - [Keymaps](#keymaps)
@@ -18,6 +18,8 @@ vimrc
         - [Visual mode](#visual-mode-1)
 - [Options](#options)
     - [Building Vim from source](#building-vim-from-source)
+    - [Using vim as a python IDE](#using-vim-as-a-python-ide)
+    - [Using vim as a Go IDE](#using-vim-as-a-python-ide)
 - [FAQ](#faq)
 - [Contact](#contact)
 - [License](#license)
@@ -32,16 +34,15 @@ Features
 
 - Automatic download the latest version of libclang and compile the ycm_core library that YCM needs
 - Supported all GNU/Linux
+- On-demand loading for faster startup time
 - Semantic auto-completion
 - Syntax checking 
 - Preservation of historical records
 - Instantly preview markdown files
 - More
 
-Installation
+Requirements
 -----
-
-### Requirements
 
 - ensure that your version of Vim is at least 7.3.598 and that it has support for Python 2 or Python 3 scripting.
 - npm -g install instant-markdown-d (For plugin vim-instant-markdown)
@@ -49,6 +50,9 @@ Installation
 - nodejs-legacy (For Debian-based systems)
 - wmctrl (Fullscreen needs)
 - cmake (Compile the ycm_core library)
+
+Installation
+-----
 
 ### Using curl
 
@@ -180,6 +184,18 @@ The `<leader>` key is `;`
 
     - Type the following in Vim: `:echo has('python')`. If the output is 1, then the version of Vim with Python support. If it's 0, then get a version of Vim with Python support.
 
+#### Using vim as a python IDE
+
+Add the following line to your .vimrc.
+
+    Plug 'klen/python-mode', { 'for': 'python' }
+
+#### Using vim as a Go IDE
+
+Add the following line to your .vimrc.
+
+    Plug 'fatih/vim-go', { 'for': 'go' }
+
 FAQ
 -----
 
@@ -192,8 +208,7 @@ Contact
 
 If I have any mistakes in grammar or vocabulary, please point out
 
-If you have feature suggestions, please use the [issue
-tracker][tracker].
+If you have feature suggestions, please use the [issue tracker][tracker].
 
 License
 -----
