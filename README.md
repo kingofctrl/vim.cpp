@@ -5,7 +5,8 @@ vimrc
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
-    - [Using curl](#using-curl)
+    - [Via curl](#via-curl)
+    - [Via wget](#via-wget)
 - [Included Plugins](#included-plugins)
 - [Keymaps](#keymaps)
     - [Basic](#basic)
@@ -54,7 +55,7 @@ Requirements
 Installation
 -----
 
-### Using curl
+### Via curl
 
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -63,6 +64,10 @@ Installation
         https://raw.githubusercontent.com/HmyBmny/vimrc/master/.vimrc
 
     vim +PlugInstall
+
+### Via wget
+
+    wget
 
 Included Plugins
 -----
@@ -206,10 +211,11 @@ This wiki [Building-Vim-from-source](https://github.com/Valloric/YouCompleteMe/w
 Contact
 -----
 
-If I have any mistakes in grammar or vocabulary, please point out
+If I have any mistakes in grammar or vocabulary, please point out. Thanks!
 
 If you have feature suggestions, please use the [issue tracker][tracker].
 
 License
 -----
+
 MIT
