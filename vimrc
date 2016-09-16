@@ -124,7 +124,7 @@ function! ToggleFullscreen()
 call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
 endf
 map <silent> <F11> :call ToggleFullscreen()<CR>
-"autocmd VimEnter * call ToggleFullscreen()
+autocmd VimEnter * call ToggleFullscreen()
 
 " Show the line and column number of the cursor position
 set ruler
