@@ -1,8 +1,11 @@
-Build vim editor in Linux into an effective C++ programming IDE
+vimrc
 ===============================================
 
 - [Introduction](#introduction)
+- [Features](#features)
 - [Installation](#installation)
+    - [Requirements](#requirements)
+    - [Using curl](#using-curl)
 - [Included Plugins](#included-plugins)
 - [Keymaps](#keymaps)
     - [Basic](#basic)
@@ -17,26 +20,37 @@ Build vim editor in Linux into an effective C++ programming IDE
 Introduction
 -----
 
-可能这是最简单的将 vim 构建为 IDE 的项目。
+Building vim editor in Linux into an effective C/C++ programming IDE, supporting [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) as a code-completion engine.
+
+Features
+-----
+- Automatic download the latest version of libclang and compile the ycm_core library that YCM needs
+- Instantly preview markdown files
+- Syntax checking 
+- Preservation of historical records
+- More
 
 Installation
 -----
 
-1. Download plug.vim and put it in the "autoload" directory.
+### Requirements
 
-        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+- ensure that your version of Vim is at least 7.3.598 and that it has support for Python 2 or Python 3 scripting.
+- npm -g install instant-markdown-d
+- xdg-utils
+- nodejs-legacy (For Debian-based systems)
+- wmctrl (Fullscreen needs)
+- cmake (Compile the ycm_core library)
 
-2. Download this vimrc and put it in the ~/ directory.
+### Using curl
 
-        curl -Lo ~/.vimrc \
-            https://raw.githubusercontent.com/HmyBmny/vimrc/master/.vimrc
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-3. Install Plugins.
+    curl -fLo ~/.vimrc \
+        https://raw.githubusercontent.com/HmyBmny/vimrc/master/.vimrc
 
-        vim +PlugInstall +qall
-
-4. Finished! Enjoy it.
+    vim +PlugInstall
 
 Included Plugins
 -----
