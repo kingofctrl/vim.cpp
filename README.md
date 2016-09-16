@@ -17,7 +17,7 @@ vimrc
         - [Insert mode](#insert-mode-1)
         - [Visual mode](#visual-mode-1)
 - [Options](#options)
-    - [Building Vim from source](#building-Vim-from-source)
+    - [Building Vim from source](#building-vim-from-source)
 - [FAQ](#faq)
 - [Contact](#contact)
 - [License](#license)
