@@ -191,7 +191,7 @@ Add the following line to your .vimrc.
 
     Plug 'klen/python-mode', { 'for': 'python' }
 
-Install Plugins `vim +PlugInstall +qall`
+Install Plugin `vim +PlugInstall +qall`
 
 #### Using vim as a Go IDE
 
@@ -199,7 +199,7 @@ Add the following line to your .vimrc.
 
     Plug 'fatih/vim-go', { 'for': 'go' }
 
-Install Plugins `vim +PlugInstall +qall`
+Install Plugin `vim +PlugInstall +qall`
 
 FAQ
 -----
