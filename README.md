@@ -68,7 +68,7 @@ Installation
 Included Plugins
 -----
 
-I think you should read the docs of these plugins to use them efficiently, also including `.vimrc'.
+I think you should read the docs of these plugins and .vimrc to use them efficiently.
 
 - [vim-plug](https://github.com/junegunn/vim-plug): Minimalist Vim Plugin Manager
 - [vim-easy-align](https://github.com/junegunn/vim-easy-align): A Vim alignment plugin
@@ -91,6 +91,7 @@ I think you should read the docs of these plugins to use them efficiently, also 
 - [ctrlp.vim](https://github.com/kien/ctrlp.vim): Fuzzy file, buffer, mru, tag, etc finder
 - [vim-instant-markdown](https://github.com/suan/vim-instant-markdown): Instant Markdown previews from VIm
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe): A code-completion engine for Vim
+- [chrisbra/unicode.vim](https://github.com/chrisbra/unicode.vim): A Vim plugin that provides a completion function for Unicode glyphs
 
 Keymaps
 -----
@@ -213,7 +214,7 @@ Contact
 
 If I have any mistakes in grammar or vocabulary, please point out. Thanks!
 
-If you have feature suggestions, please open [Issues](#https://github.com/HmyBmny/vimrc/issues) or [Pull requests](#https://github.com/HmyBmny/vimrc/pulls).
+If you have feature suggestions, please open [issues](#https://github.com/HmyBmny/vimrc/issues) or [pull requests](#https://github.com/HmyBmny/vimrc/pulls).
 
 License
 -----
