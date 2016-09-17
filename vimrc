@@ -19,6 +19,7 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
+Plug 'chrisbra/unicode.vim'
 
 " Browsing
 Plug 'nathanaelkane/vim-indent-guides'
@@ -67,6 +68,8 @@ endif
 " BASIC SETTINGS
 
 let mapleader = ';'
+
+set encoding=utf-8
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
