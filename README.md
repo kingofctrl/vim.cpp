@@ -47,12 +47,14 @@ Features
 Requirements
 -----
 
-- <small>Vim is</small> `at least 7.3.598` <small>and</small> `Python 2` <small>or</small> `Python 3` <small>scripting is supported</small>
-- `npm -g install instant-markdown-d` <small>For plugin vim-instant-markdown</small>
-- `xdg-utils` <small>For plugin vim-instant-markdown</small>
-- `nodejs-legacy` <small>For Debian-based systems</small>
-- `wmctrl` <small>Fullscreen needs</small>
-- `cmake` <small>Compile the ycm_core library</small>
+<i><small>
+- Vim is `at least 7.3.598` and `Python 2` or `Python 3` scripting is supported
+- `npm -g install instant-markdown-d` For plugin vim-instant-markdown
+- `xdg-utils` For plugin vim-instant-markdown
+- `nodejs-legacy` For Debian-based systems
+- `wmctrl` Fullscreen needs
+- `cmake` Compile the ycm_core library
+</small><i>
 
 Installation
 -----
