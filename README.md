@@ -34,10 +34,12 @@ Features
 -----
 
 - Automatic download the latest version of libclang and compile the ycm_core library that YCM needs
+- One-step install
 - Supported all GNU/Linux
 - On-demand loading for faster startup time
 - Semantic auto-completion
 - Syntax checking 
+- Syntax highlighting for C++11/14
 - Preservation of historical records
 - Instantly preview markdown files
 - More
@@ -45,12 +47,12 @@ Features
 Requirements
 -----
 
-- ensure that your version of Vim is `at least 7.3.598` and that it has support for `Python 2` or `Python 3` scripting.
-- `npm -g install instant-markdown-d` (For plugin vim-instant-markdown)
-- `xdg-utils` (For plugin vim-instant-markdown)
-- `nodejs-legacy` (For Debian-based systems)
-- `wmctrl` (Fullscreen needs)
-- `cmake` (Compile the ycm_core library)
+- <small>Vim is</small> `at least 7.3.598` <small>and</small> `Python 2` <small>or</small> `Python 3` <small>scripting is supported</small>
+- `npm -g install instant-markdown-d` <small>For plugin vim-instant-markdown</small>
+- `xdg-utils` <small>For plugin vim-instant-markdown</small>
+- `nodejs-legacy` <small>For Debian-based systems</small>
+- `wmctrl` <small>Fullscreen needs</small>
+- `cmake` <small>Compile the ycm_core library</small>
 
 Installation
 -----
@@ -66,7 +68,7 @@ Installation
 Included Plugins
 -----
 
-I think you should read the docs of these plugins to use them efficiently.
+I think you should read the docs of these plugins to use them efficiently, also including `.vimrc'.
 
 - [vim-plug](https://github.com/junegunn/vim-plug): Minimalist Vim Plugin Manager
 - [vim-easy-align](https://github.com/junegunn/vim-easy-align): A Vim alignment plugin
