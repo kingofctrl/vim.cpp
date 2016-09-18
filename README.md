@@ -128,6 +128,12 @@ The `<leader>` key is `;`
 #### Visual mode
 
 - `;y` Copy
+- `{<Space>` Input `{}`
+- `[<Space>` Input `[]`
+- `(<Space>` Input `()`
+- `<<Space>` Input `<>`
+- `"<Space>` Input `""`
+- `'<Space>` Input `''`
 
 ### Plugins
 
