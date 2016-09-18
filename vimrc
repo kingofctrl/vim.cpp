@@ -147,6 +147,15 @@ set wildignore+=*.swp,*~,._*
 
 set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 
+" pairs
+imap {<Space> {}<esc>i
+imap [<Space> []<esc>i
+imap (<Space> ()<esc>i
+imap <<Space> <><esc>i
+imap "<Space> ""<esc>i
+imap '<Space> ''<esc>i
+imap `<Space> ``<esc>i
+
 " <<<<
 " >>>>
 " MAPPINGS
