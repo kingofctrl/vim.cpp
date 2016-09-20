@@ -91,7 +91,6 @@ I think you should read the docs of these plugins and .vimrc to use them efficie
 - [ctrlp.vim](https://github.com/kien/ctrlp.vim): Fuzzy file, buffer, mru, tag, etc finder
 - [vim-instant-markdown](https://github.com/suan/vim-instant-markdown): Instant Markdown previews from VIm
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe): A code-completion engine for Vim
-- [chrisbra/unicode.vim](https://github.com/chrisbra/unicode.vim): A Vim plugin that provides a completion function for Unicode glyphs
 
 Keymaps
 -----
