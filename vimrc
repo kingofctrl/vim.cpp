@@ -19,7 +19,8 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
-Plug 'chrisbra/unicode.vim'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " Browsing
 Plug 'nathanaelkane/vim-indent-guides'
@@ -202,27 +203,27 @@ nnoremap <Leader>lw <C-W>l
 " ----------------------------------------------------------------------------
 
 function! s:colors(...)
-  return filter(map(filter(split(globpath(&rtp, 'colors/*.vim'), "\n"),
-        \                  'v:val !~ "^/usr/"'),
-        \           'fnamemodify(v:val, ":t:r")'),
-        \       '!a:0 || stridx(v:val, a:1) >= 0')
+return filter(map(filter(split(globpath(&rtp, 'colors/*.vim'), "\n"),
+    \                  'v:val !~ "^/usr/"'),
+    \           'fnamemodify(v:val, ":t:r")'),
+    \       '!a:0 || stridx(v:val, a:1) >= 0')
 endfunction
 
 " ----------------------------------------------------------------------------
 " <F8> | Color scheme selector
 " ----------------------------------------------------------------------------
 
-" colorscheme solarized
+colorscheme solarized
 
 function! s:rotate_colors()
-  if !exists('s:colors')
-    let s:colors = s:colors()
-  endif
-  let name = remove(s:colors, 0)
-  call add(s:colors, name)
-  execute 'colorscheme' name
-  redraw
-  echo name
+if !exists('s:colors')
+let s:colors = s:colors()
+endif
+let name = remove(s:colors, 0)
+call add(s:colors, name)
+execute 'colorscheme' name
+redraw
+echo name
 endfunction
 
 nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
@@ -288,11 +289,20 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 " vim-multiple-cursors
 " ----------------------------------------------------------------------------
 
+let g:multi_cursor_next_key='<S-n>'
+let g:multi_cursor_skip_key='<S-k>'
+
 " ----------------------------------------------------------------------------
 " vim-move
 " ----------------------------------------------------------------------------
 
 let g:move_key_modifier = 'C'
+
+" ----------------------------------------------------------------------------
+" YankRing.vim
+" ----------------------------------------------------------------------------
+
+nnoremap <silent> <F9> :YRShow<CR>
 
 " ----------------------------------------------------------------------------
 " vim-indent-guides
@@ -344,38 +354,38 @@ let tagbar_width=32
 let g:tagbar_sort = 0
 let g:tagbar_compact=1
 let g:tagbar_type_cpp = {
-     \ 'ctagstype' : 'c++',
-     \ 'kinds'     : [
-         \ 'c:classes:0:1',
-         \ 'd:macros:0:1',
-         \ 'e:enumerators:0:0', 
-         \ 'f:functions:0:1',
-         \ 'g:enumeration:0:1',
-         \ 'l:local:0:1',
-         \ 'm:members:0:1',
-         \ 'n:namespaces:0:1',
-         \ 'p:functions_prototypes:0:1',
-         \ 's:structs:0:1',
-         \ 't:typedefs:0:1',
-         \ 'u:unions:0:1',
-         \ 'v:global:0:1',
-         \ 'x:external:0:1'
-     \ ],
-     \ 'sro'        : '::',
-     \ 'kind2scope' : {
-         \ 'g' : 'enum',
-         \ 'n' : 'namespace',
-         \ 'c' : 'class',
-         \ 's' : 'struct',
-         \ 'u' : 'union'
-     \ },
-     \ 'scope2kind' : {
-         \ 'enum'      : 'g',
-         \ 'namespace' : 'n',
-         \ 'class'     : 'c',
-         \ 'struct'    : 's',
-         \ 'union'     : 'u'
-     \ }
+ \ 'ctagstype' : 'c++',
+ \ 'kinds'     : [
+     \ 'c:classes:0:1',
+     \ 'd:macros:0:1',
+     \ 'e:enumerators:0:0', 
+     \ 'f:functions:0:1',
+     \ 'g:enumeration:0:1',
+     \ 'l:local:0:1',
+     \ 'm:members:0:1',
+     \ 'n:namespaces:0:1',
+     \ 'p:functions_prototypes:0:1',
+     \ 's:structs:0:1',
+     \ 't:typedefs:0:1',
+     \ 'u:unions:0:1',
+     \ 'v:global:0:1',
+     \ 'x:external:0:1'
+ \ ],
+ \ 'sro'        : '::',
+ \ 'kind2scope' : {
+     \ 'g' : 'enum',
+     \ 'n' : 'namespace',
+     \ 'c' : 'class',
+     \ 's' : 'struct',
+     \ 'u' : 'union'
+ \ },
+ \ 'scope2kind' : {
+     \ 'enum'      : 'g',
+     \ 'namespace' : 'n',
+     \ 'class'     : 'c',
+     \ 'struct'    : 's',
+     \ 'union'     : 'u'
+ \ }
 \ }
 
 " ----------------------------------------------------------------------------
@@ -409,14 +419,14 @@ nnoremap <Leader>ud :GundoToggle<CR>
 set sessionoptions="blank,globals,localoptions,tabpages,sesdir,folds,help,options,resize,winpos,winsize"
 
 if !strlen(finddir('~/.vim/undofiles'))
-    echo "undofiles[~/.vim/undofiles] not found. Now it's being created. Press ENTER or type command to continue."
-    !mkdir -p ~/.vim/undofiles
+echo "undofiles[~/.vim/undofiles] not found. Now it's being created. Press ENTER or type command to continue."
+!mkdir -p ~/.vim/undofiles
 endif
 
 if v:version >= 703
-    set undodir=~/.vim/undofiles
-    set undofile
-    set colorcolumn=+1 
+set undodir=~/.vim/undofiles
+set undofile
+set colorcolumn=+1 
 endif
 
 " ----------------------------------------------------------------------------
@@ -429,7 +439,7 @@ nnoremap <c-f> :CtrlSF<CR>
 " ctrlp.vim
 " ----------------------------------------------------------------------------
 
-let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<s-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " ----------------------------------------------------------------------------
