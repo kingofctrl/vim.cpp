@@ -213,7 +213,7 @@ endfunction
 " <F8> | Color scheme selector
 " ----------------------------------------------------------------------------
 
-colorscheme solarized
+set background=dark
 
 function! s:rotate_colors()
 if !exists('s:colors')
