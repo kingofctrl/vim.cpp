@@ -30,6 +30,8 @@ Introduction
 
 Building vim editor in Linux into an effective C/C++ programming IDE, supporting [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) as a code-completion engine.
 
+![screenshot](screenshot.png)
+
 Features
 -----
 
@@ -47,12 +49,13 @@ Features
 Requirements
 -----
 
-- <font size=2>Vim is</font> `at least 7.3.598` <font size=2>and</font> `Python 2` <font size=2>or</font> `Python 3` <font size=2>scripting is supported</font>
-- `npm -g install instant-markdown-d` <font size=2>For plugin vim-instant-markdown</font>
-- `xdg-utils` <font size=2>For plugin vim-instant-markdown</font>
-- `nodejs-legacy` <font size=2>For Debian-based systems</font>
-- `wmctrl` <font size=2>Fullscreen needs</font>
-- `cmake` <font size=2>Compile the ycm_core library</font>
+- `at least 7.3.598` and `Python 2` or `Python 3` scripting is supported
+- `npm -g install instant-markdown-d` For plugin vim-instant-markdown
+- `xdg-utils` For plugin vim-instant-markdown
+- `nodejs-legacy` For Debian-based systems
+- `wmctrl` Fullscreen needs
+- `cmake` Compile the ycm_core library
+- `ctags` For plugin tarbar
 
 Installation
 -----
@@ -77,6 +80,11 @@ I think you should read the docs of these plugins and .vimrc to use them efficie
 - [ultisnips](https://github.com/SirVer/ultisnips): The ultimate snippet solution for Vim
 - [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors): True Sublime Text style multiple selections for Vim
 - [vim-move](https://github.com/matze/vim-move): Plugin to move lines and selections up and down
+- [YankRing.vim](https://github.com/vim-scripts/YankRing.vim): Maintains a history of previous yanks, changes and deletes
+- [auto-pairs](https://github.com/jiangmiao/auto-pairs): Vim plugin, insert or delete brackets, parens, quotes in pair 
+- [vim-operator-user](https://github.com/kana/vim-operator-user): Vim plugin: Define your own operator easily
+- [vim-clang-format](https://github.com/rhysd/vim-clang-format): Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript and TypeScript
+- [wildfire.vim](https://github.com/gcmt/wildfire.vim): Smart selection of the closest text object
 - [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides): A Vim plugin for visually displaying indent levels in code
 - [vim-fswitch](https://github.com/derekwyatt/vim-fswitch): Vim plug for switching between companion source files (e.g. ".h" and ".cpp")
 - [vim-protodef](https://github.com/derekwyatt/vim-protodef): Vim plugin for pulling in C++ function prototypes into implementation files
@@ -123,6 +131,8 @@ The `<leader>` key is `;`
 - `<C-j>` Move down
 - `<C-k>` Move up
 - `<C-l>` move right
+- `<F8>` Change color scheme
+- `<F11>` Fullscreen
 
 #### Visual mode
 
@@ -133,9 +143,6 @@ The `<leader>` key is `;`
 #### Normal mode
 
 - `;fs` Switch between companion source files (e.g. ".h" and ".cpp")
-- `<F2>` Toogle Tagbar visible
-- `<F3>` Toogle NERD-Tree visible
-- `<F4>` Toogle minibufexpl visble
 - `]b` Jump to the next buffer 
 - `[b` Jump to the previous buffer 
 - `;ud` Toggle Gundo visible 
@@ -144,12 +151,19 @@ The `<leader>` key is `;`
 - `;md` Launch the preview window for current markdown file
 - `;jc` Go to declaration
 - `;jd` Go to definition
+- `<F2>` Toogle Tagbar visible
+- `<F3>` Toogle NERD-Tree visible
+- `<F4>` Toogle minibufexpl visble
+- `<F9>` Show history of previous yanks, changes and deletes
+- `<F12>` Format your C family code
 
 #### Insert mode
 
 - `<F2>` Toogle Tagbar visible
 - `<F3>` Toogle NERD-Tree visible
 - `<F4>` Toogle minibufexpl visble
+- `<F9>` Show history of previous yanks, changes and deletes
+- `<F12>` Format your C family code
 
 #### Visual mode
 

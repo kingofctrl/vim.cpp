@@ -13,7 +13,8 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'tomasr/molokai'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 " Edit
 Plug 'SirVer/ultisnips'
@@ -21,11 +22,14 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'kana/vim-operator-user'
+Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp', 'objc'] }
+Plug 'gcmt/wildfire.vim'
 
 " Browsing
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'derekwyatt/vim-fswitch', { 'for': 'cpp' }
-Plug 'derekwyatt/vim-protodef', { 'for': 'cpp' }
+Plug 'derekwyatt/vim-fswitch', { 'for': ['c', 'cpp', 'objc'] }
+Plug 'derekwyatt/vim-protodef', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -132,6 +136,7 @@ call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
 endf
 
 map <silent> <F11> :call ToggleFullscreen()<CR>
+imap <silent> <F11> <esc>:call ToggleFullscreen()<CR>
 " autocmd VimEnter * call ToggleFullscreen()
 
 " Show the line and column number of the cursor position
@@ -146,7 +151,6 @@ set wildignore+=*.o,*.out,*.obj,.git,*.pyc,*.class
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.swp,*~,._*
 
-set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 
 " <<<<
 " >>>>
@@ -214,6 +218,7 @@ endfunction
 " ----------------------------------------------------------------------------
 
 set background=dark
+colorscheme solarized
 
 function! s:rotate_colors()
 if !exists('s:colors')
@@ -227,6 +232,7 @@ echo name
 endfunction
 
 nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
+inoremap <silent> <F8> <esc>:call <SID>rotate_colors()<cr>
 
 " <<<<
 " >>>>
@@ -303,6 +309,37 @@ let g:move_key_modifier = 'C'
 " ----------------------------------------------------------------------------
 
 nnoremap <silent> <F9> :YRShow<CR>
+inoremap <silent> <F9> <esc>:YRShow<CR>
+
+" ----------------------------------------------------------------------------
+" auto-pairs
+" ----------------------------------------------------------------------------
+
+" ----------------------------------------------------------------------------
+" vim-operator-user
+" ----------------------------------------------------------------------------
+
+" ----------------------------------------------------------------------------
+" vim-clang-format
+" ----------------------------------------------------------------------------
+
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
+autocmd FileType c,cpp,objc nnoremap <F12> :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <F12> :ClangFormat<CR>
+autocmd FileType c,cpp,objc inoremap <F12> <esc>:ClangFormat<CR>
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+" ----------------------------------------------------------------------------
+" wildfire.vim
+" ----------------------------------------------------------------------------
+
+map <SPACE> <Plug>(wildfire-fuel)
+vmap <C-SPACE> <Plug>(wildfire-water)
 
 " ----------------------------------------------------------------------------
 " vim-indent-guides
