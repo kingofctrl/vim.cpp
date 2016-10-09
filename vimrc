@@ -1,5 +1,6 @@
 " >>>>
 " .vimrc of Bo Liu
+" https://github.com/HmyBmny/vimrc
 
 set nocompatible
 
