@@ -180,39 +180,39 @@ The `<leader>` key is `;`
 
     - Ubuntu
 
-    ```
-    sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
-    libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
-    libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-    python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev git
-    ```
+        ```
+        sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
+        libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+        libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+        python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev git
+        ```
 
     - openSUSE
 
-    ```
-    zypper in ruby-devel python-devel python3-devel perl-devel lua-devel ncurses-devel libX11-devel gtk2-devel xorg-x11-devel
-    ```
+        ```
+        zypper in ruby-devel python-devel python3-devel perl-devel lua-devel ncurses-devel libX11-devel gtk2-devel xorg-x11-devel
+        ```
 
 - Remove vim if you have it already
 - Building Vim from source
 
     - Add/remove the flags above to fit your setup. For example, you can leave out enable-luainterp if you don't plan on writing any Lua.
 
-    ```
-    cd ~
-    git clone https://github.com/vim/vim.git
-    cd vim
-    ./configure --with-features=huge \
-                --enable-multibyte \
-                --enable-rubyinterp \
-                --enable-pythoninterp \
-                --with-python-config-dir=/usr/lib/python2.7/config \
-                --enable-perlinterp \
-                --enable-luainterp \
-                --enable-gui=gtk2 --enable-cscope --prefix=/usr
-    make
-    sudo make install
-    ```
+        ```
+        cd ~
+        git clone https://github.com/vim/vim.git
+        cd vim
+        ./configure --with-features=huge \
+                    --enable-multibyte \
+                    --enable-rubyinterp \
+                    --enable-pythoninterp \
+                    --with-python-config-dir=/usr/lib/python2.7/config \
+                    --enable-perlinterp \
+                    --enable-luainterp \
+                    --enable-gui=gtk2 --enable-cscope --prefix=/usr
+        make
+        sudo make install
+        ```
 
     - Type the following in Vim: `:echo has('python')`. If the output is 1, then the version of Vim with Python support. If it's 0, then get a version of Vim with Python support.
 
