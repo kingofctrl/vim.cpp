@@ -91,6 +91,7 @@ I think you should read the docs of these plugins and .vimrc to use them efficie
 - [vim-protodef](https://github.com/derekwyatt/vim-protodef): Vim plugin for pulling in C++ function prototypes into implementation files
 - [nerdcommenter](https://github.com/scrooloose/nerdcommenter): Vim plugin for intensely orgasmic commenting
 - [nerdtree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for vim
+- [powerline](https://github.com/powerline/powerline): Powerline is a statusline plugin for vim 
 - [tagbar](https://github.com/majutsushi/tagbar): Vim plugin that displays tags in a window, ordered by scope
 - [vim-polyglot](https://github.com/sheerun/vim-polyglot): A solid language pack for Vim
 - [syntastic](https://github.com/scrooloose/syntastic): Syntax checking hacks for vim
