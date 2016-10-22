@@ -1,6 +1,6 @@
 " >>>>
 " .vimrc of Bo Liu
-" https://github.com/HmyBmny/vimrc
+" https://github.com/hmybmny/vimrc
 
 set nocompatible
 
@@ -33,6 +33,7 @@ Plug 'derekwyatt/vim-fswitch', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'derekwyatt/vim-protodef', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 augroup nerd_loader
 autocmd!
@@ -120,8 +121,6 @@ set expandtab smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-
-set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 
 set gcr=a:block-blinkon0
 
@@ -379,6 +378,11 @@ let NERDTreeWinPos="right"
 let NERDTreeShowHidden=0
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
+
+" ----------------------------------------------------------------------------
+" powerline
+" ----------------------------------------------------------------------------
+
 
 " ----------------------------------------------------------------------------
 " tarbar
