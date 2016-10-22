@@ -233,8 +233,8 @@ This wiki [Building-Vim-from-source](https://github.com/Valloric/YouCompleteMe/w
 
 LINKS
 -----
-[vim](https://github.com/vim/vim)
-[use_vim_as_ide](https://github.com/yangyangwithgnu/use_vim_as_ide)
+- [vim](https://github.com/vim/vim)
+- [use_vim_as_ide](https://github.com/yangyangwithgnu/use_vim_as_ide)
 
 Contact
 -----
