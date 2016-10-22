@@ -49,13 +49,14 @@ Features
 Requirements
 -----
 
-- `at least 7.3.598` and `Python 2` or `Python 3` scripting is supported
+- vim `7.4.143` with `Python 2` or `Python 3` support
 - `npm -g install instant-markdown-d` For plugin vim-instant-markdown
 - `xdg-utils` For plugin vim-instant-markdown
 - `nodejs-legacy` For Debian-based systems
 - `wmctrl` Fullscreen needs
 - `cmake` Compile the ycm_core library
 - `ctags` For plugin tarbar
+- `clang-format` For plugin vim-clang-format
 
 Installation
 -----
@@ -172,11 +173,19 @@ The `<leader>` key is `;`
 
 ### Options
 
-#### Building Vim from source
+#### Building vim from source
 
 - Install all the following libraries
+    - Ubuntu
 
-    `ruby-devel` `python-devel` `python3-devel` `perl-devel` `lua-devel` `ncurses-devel` `libX11-devel` `gtk2-devel` `xorg-x11-devel`
+        sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
+        libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+        libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+        python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev git
+
+    - openSUSE
+
+        zypper in ruby-devel python-devel python3-devel perl-devel lua-devel ncurses-devel libX11-devel gtk2-devel xorg-x11-devel
 
 - Remove vim if you have it already
 - Building Vim from source
@@ -222,10 +231,13 @@ FAQ
 
 This wiki [Building-Vim-from-source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source) may be helpful for you. 
 
+LINKS
+-----
+[vim](https://github.com/vim/vim)
+[use_vim_as_ide](https://github.com/yangyangwithgnu/use_vim_as_ide)
+
 Contact
 -----
-
-If I have any mistakes in grammar or vocabulary, please point out. Thanks!
 
 If you have feature suggestions, please open [issues](#https://github.com/HmyBmny/vimrc/issues) or [pull requests](#https://github.com/HmyBmny/vimrc/pulls).
 
