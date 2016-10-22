@@ -190,7 +190,8 @@ The `<leader>` key is `;`
     - openSUSE
 
         ```
-        zypper in ruby-devel python-devel python3-devel perl-devel lua-devel ncurses-devel libX11-devel gtk2-devel xorg-x11-devel
+        zypper in ruby-devel python-devel python3-devel perl-devel \
+        lua-devel ncurses-devel libX11-devel gtk2-devel xorg-x11-devel
         ```
 
 - Remove vim if you have it already
