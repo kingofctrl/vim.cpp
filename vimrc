@@ -56,7 +56,7 @@ Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
 Plug 'fholgado/minibufexpl.vim'
 Plug 'sjl/gundo.vim'
 Plug 'dyng/ctrlsf.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 function! BuildYCM(info)
