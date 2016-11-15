@@ -49,7 +49,7 @@ Features
 Requirements
 -----
 
-- vim `7.4.143` with `Python 2` or `Python 3` support
+- vim `7.4.143+` with `Python 2` or `Python 3` support
 - `npm -g install instant-markdown-d` For plugin vim-instant-markdown
 - `xdg-utils` For plugin vim-instant-markdown
 - `nodejs-legacy` For Debian-based systems
