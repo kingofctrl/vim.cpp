@@ -18,7 +18,7 @@ C/C++ IDE
         - [Insert mode](#insert-mode-1)
         - [Visual mode](#visual-mode-1)
 - [Options](#options)
-    - [Building Vim from source](#building-vim-from-source)
+    - [Building vim from source](#building-vim-from-source)
     - [Using vim as a python IDE](#using-vim-as-a-python-ide)
     - [Using vim as a Go IDE](#using-vim-as-a-go-ide)
 - [FAQ](#faq)
@@ -56,6 +56,7 @@ Requirements
 - `wmctrl` Fullscreen needs
 - `cmake` Compile the ycm_core library
 - `ctags` For plugin tarbar
+- `ack-grep` For plugin ctrlsf
 - `clang-format` For plugin vim-clang-format
 
 Installation
@@ -77,23 +78,20 @@ I think you should read the docs of these plugins and .vimrc to use them efficie
 - [vim-plug](https://github.com/junegunn/vim-plug): Minimalist Vim Plugin Manager
 - [vim-easy-align](https://github.com/junegunn/vim-easy-align): A Vim alignment plugin
 - [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized): precision colorscheme for the vim text editor
-- [vim-tomorrow-theme](https://github.com/chriskempson/vim-tomorrow-theme): Tomorrow Theme for Vim
+- [vim-polyglot](https://github.com/sheerun/vim-polyglot): A solid language pack for Vim
 - [ultisnips](https://github.com/SirVer/ultisnips): The ultimate snippet solution for Vim
 - [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors): True Sublime Text style multiple selections for Vim
 - [vim-move](https://github.com/matze/vim-move): Plugin to move lines and selections up and down
-- [YankRing.vim](https://github.com/vim-scripts/YankRing.vim): Maintains a history of previous yanks, changes and deletes
 - [auto-pairs](https://github.com/jiangmiao/auto-pairs): Vim plugin, insert or delete brackets, parens, quotes in pair 
 - [vim-operator-user](https://github.com/kana/vim-operator-user): Vim plugin: Define your own operator easily
 - [vim-clang-format](https://github.com/rhysd/vim-clang-format): Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript and TypeScript
 - [wildfire.vim](https://github.com/gcmt/wildfire.vim): Smart selection of the closest text object
-- [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides): A Vim plugin for visually displaying indent levels in code
+- [indentLine](https://github.com/Yggdroot/indentLine): A vim plugin to display the indention levels with thin vertical lines
+- [tagbar](https://github.com/majutsushi/tagbar): Vim plugin that displays tags in a window, ordered by scope
 - [vim-fswitch](https://github.com/derekwyatt/vim-fswitch): Vim plug for switching between companion source files (e.g. ".h" and ".cpp")
 - [vim-protodef](https://github.com/derekwyatt/vim-protodef): Vim plugin for pulling in C++ function prototypes into implementation files
 - [nerdcommenter](https://github.com/scrooloose/nerdcommenter): Vim plugin for intensely orgasmic commenting
 - [nerdtree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for vim
-- [powerline](https://github.com/powerline/powerline): Powerline is a statusline plugin for vim 
-- [tagbar](https://github.com/majutsushi/tagbar): Vim plugin that displays tags in a window, ordered by scope
-- [vim-polyglot](https://github.com/sheerun/vim-polyglot): A solid language pack for Vim
 - [syntastic](https://github.com/scrooloose/syntastic): Syntax checking hacks for vim
 - [minibufexpl.vim](https://github.com/fholgado/minibufexpl.vim): Elegant buffer explorer - takes very little screen space
 - [gundo.vim](https://github.com/sjl/gundo.vim): Gundo.vim is Vim plugin to visualize your Vim undo tree
@@ -156,7 +154,6 @@ The `<leader>` key is `;`
 - `<F2>` Toogle Tagbar visible
 - `<F3>` Toogle NERD-Tree visible
 - `<F4>` Toogle minibufexpl visble
-- `<F9>` Show history of previous yanks, changes and deletes
 - `<F12>` Format your C family code
 
 #### Insert mode
@@ -238,7 +235,7 @@ FAQ
 
 ### Can't build vim correctly
 
-This wiki [Building-Vim-from-source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source) may be helpful for you. 
+This wiki [Building-vim-from-source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source) may be helpful for you. 
 
 LINKS
 -----
@@ -249,7 +246,7 @@ LINKS
 Contact
 -----
 
-If you have feature suggestions, please open [issues](#https://github.com/HmyBmny/vimrc/issues) or [pull requests](#https://github.com/HmyBmny/vimrc/pulls).
+If you have feature suggestions, please open [issues](#https://github.com/hmybmny/vimrc/issues) or [pull requests](#https://github.com/hmybmny/vimrc/pulls).
 
 License
 -----

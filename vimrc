@@ -14,26 +14,24 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
-Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'sheerun/vim-polyglot'
 
 " Edit
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
-Plug 'vim-scripts/YankRing.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'gcmt/wildfire.vim'
 
 " Browsing
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle'      }
 Plug 'derekwyatt/vim-fswitch', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'derekwyatt/vim-protodef', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 augroup nerd_loader
 autocmd!
@@ -45,10 +43,6 @@ autocmd BufEnter,BufNew *
     \| endif
 augroup END
 
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle'      }
-
-" Lang
-Plug 'sheerun/vim-polyglot'
 
 " Lint
 Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
@@ -109,6 +103,18 @@ set hlsearch
 " Always show window statuses
 set laststatus=2
 
+" Statusline style
+set statusline=
+set statusline+=%7*\[%n]                                  "buffernr
+set statusline+=%1*\ %<%F\                                "File+path
+set statusline+=%2*\ %y\                                  "FileType
+set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
+set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
+set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
+set statusline+=%8*\ %=\ row:%l/%L\ (%p%%)\             "Rownumber/total (%)
+set statusline+=%9*\ col:%c\                            "Colnr
+set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+
 " Show the size of block one selected in visual mode
 set showcmd
 
@@ -118,9 +124,9 @@ set visualbell
 
 " Indent using four spaces
 set expandtab smarttab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 set gcr=a:block-blinkon0
 
@@ -216,9 +222,14 @@ endfunction
 " ----------------------------------------------------------------------------
 " <F8> | Color scheme selector
 " ----------------------------------------------------------------------------
-
-set background=dark
-colorscheme solarized
+"  
+if has('gui_running')
+    set background=dark
+else
+    set background=light
+endif
+let g:solarized_termcolors=256
+colorschem solarized
 
 function! s:rotate_colors()
 if !exists('s:colors')
@@ -226,6 +237,11 @@ let s:colors = s:colors()
 endif
 let name = remove(s:colors, 0)
 call add(s:colors, name)
+if has('gui_running')
+    set background=dark
+else
+    set background=light
+endif
 execute 'colorscheme' name
 redraw
 echo name
@@ -305,13 +321,6 @@ let g:multi_cursor_skip_key='<S-k>'
 let g:move_key_modifier = 'C'
 
 " ----------------------------------------------------------------------------
-" YankRing.vim
-" ----------------------------------------------------------------------------
-
-nnoremap <silent> <F9> :YRShow<CR>
-inoremap <silent> <F9> <esc>:YRShow<CR>
-
-" ----------------------------------------------------------------------------
 " auto-pairs
 " ----------------------------------------------------------------------------
 
@@ -342,47 +351,11 @@ map <SPACE> <Plug>(wildfire-fuel)
 vmap <C-SPACE> <Plug>(wildfire-water)
 
 " ----------------------------------------------------------------------------
-" vim-indent-guides
+" indentLine
 " ----------------------------------------------------------------------------
 
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-
-" ----------------------------------------------------------------------------
-" vim-fswitch
-" ----------------------------------------------------------------------------
-
-nmap <silent> <Leader>fs :FSHere<cr>
-
-" ----------------------------------------------------------------------------
-" vim-protodef
-" ----------------------------------------------------------------------------
-
-let g:protodefprotogetter='~/.vim/plugged/vim-protodef/pullproto.pl'
-let g:disable_protodef_sorting=1
-
-" ----------------------------------------------------------------------------
-" nerdcommenter
-" ----------------------------------------------------------------------------
-
-" ----------------------------------------------------------------------------
-" nerdtree
-" ----------------------------------------------------------------------------
-
-inoremap <F3> <esc>:NERDTreeToggle<CR>
-nnoremap <F3> :NERDTreeToggle<CR>
-
-let NERDTreeWinSize=22
-let NERDTreeWinPos="right"
-let NERDTreeShowHidden=0
-let NERDTreeMinimalUI=1
-let NERDTreeAutoDeleteBuffer=1
-
-" ----------------------------------------------------------------------------
-" powerline
-" ----------------------------------------------------------------------------
-
+let g:indentLine_setColors = 0
+let g:indentLine_char = '¦'
 
 " ----------------------------------------------------------------------------
 " tarbar
@@ -431,8 +404,34 @@ let g:tagbar_type_cpp = {
 \ }
 
 " ----------------------------------------------------------------------------
-" vim-polyglot
+" vim-fswitch
 " ----------------------------------------------------------------------------
+
+nmap <silent> <Leader>fs :FSHere<cr>
+
+" ----------------------------------------------------------------------------
+" vim-protodef
+" ----------------------------------------------------------------------------
+
+let g:protodefprotogetter='~/.vim/plugged/vim-protodef/pullproto.pl'
+let g:disable_protodef_sorting=1
+
+" ----------------------------------------------------------------------------
+" nerdcommenter
+" ----------------------------------------------------------------------------
+
+" ----------------------------------------------------------------------------
+" nerdtree
+" ----------------------------------------------------------------------------
+
+inoremap <F3> <esc>:NERDTreeToggle<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
+
+let NERDTreeWinSize=22
+let NERDTreeWinPos="right"
+let NERDTreeShowHidden=0
+let NERDTreeMinimalUI=1
+let NERDTreeAutoDeleteBuffer=1
 
 " ----------------------------------------------------------------------------
 " syntastic
@@ -481,8 +480,15 @@ nnoremap <c-f> :CtrlSF<CR>
 " ctrlp.vim
 " ----------------------------------------------------------------------------
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
 let g:ctrlp_map = '<s-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|vendor/bundle/*\|vendor/cache/*\|public\|spec)$',
+  \ 'file': '\v\.(exe|so|dll|swp|log|jpg|png|json)$',
+  \ }
 
 " ----------------------------------------------------------------------------
 " vim-instant-markdown
