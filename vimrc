@@ -10,8 +10,6 @@ set nocompatible
 
 silent! if plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-
 " Colors
 Plug 'altercation/vim-colors-solarized'
 Plug 'sheerun/vim-polyglot'
@@ -22,7 +20,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kana/vim-operator-user'
-Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'gcmt/wildfire.vim'
 
 " Browsing
@@ -124,9 +121,9 @@ set visualbell
 
 " Indent using four spaces
 set expandtab smarttab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 set gcr=a:block-blinkon0
 
@@ -170,16 +167,12 @@ set wildignore+=*.swp,*~,._*
 inoremap <C-s>     <C-O>:w<cr>
 nnoremap <C-s>     :w<cr>
 nnoremap <leader>w :w<cr>
-nnoremap <leader>s :w<cr>
 
 " Copy
 vnoremap <Leader>y "+y
 nmap <Leader>p "+p
 
 " Quit
-inoremap <C-Q>     <esc>:q<cr>
-nnoremap <C-Q>     :q<cr>
-vnoremap <C-Q>     <esc>
 nnoremap <Leader>q :q<cr>
 nnoremap <Leader>Q :qa!<cr>
 
@@ -255,50 +248,6 @@ inoremap <silent> <F8> <esc>:call <SID>rotate_colors()<cr>
 " PLUGINS
 
 " ----------------------------------------------------------------------------
-" vim-easy-align
-" ----------------------------------------------------------------------------
-
-let g:easy_align_delimiters = {
-\ '>': { 'pattern': '>>\|=>\|>' },
-\ '\': { 'pattern': '\\' },
-\ '/': { 'pattern': '//\+\|/\*\|\*/', 'delimiter_align': 'l', 'ignore_groups': ['!Comment'] },
-\ ']': {
-\     'pattern':       '\]\zs',
-\     'left_margin':   0,
-\     'right_margin':  1,
-\     'stick_to_left': 0
-\   },
-\ ')': {
-\     'pattern':       ')\zs',
-\     'left_margin':   0,
-\     'right_margin':  1,
-\     'stick_to_left': 0
-\   },
-\ 'f': {
-\     'pattern': ' \(\S\+(\)\@=',
-\     'left_margin': 0,
-\     'right_margin': 0
-\   },
-\ 'd': {
-\     'pattern': ' \ze\S\+\s*[;=]',
-\     'left_margin': 0,
-\     'right_margin': 0
-\   }
-\ }
-
-" Start interactive EasyAlign in visual mode
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign with a Vim movement
-nmap ga <Plug>(EasyAlign)
-nmap gaa ga_
-
-" xmap <Leader><Enter>   <Plug>(LiveEasyAlign)
-" nmap <Leader><Leader>a <Plug>(LiveEasyAlign)
-
-" inoremap <silent> => =><Esc>mzvip:EasyAlign/=>/<CR>`z$a<Space>
-
-" ----------------------------------------------------------------------------
 " ultisnips
 " ----------------------------------------------------------------------------
 
@@ -327,21 +276,6 @@ let g:move_key_modifier = 'C'
 " ----------------------------------------------------------------------------
 " vim-operator-user
 " ----------------------------------------------------------------------------
-
-" ----------------------------------------------------------------------------
-" vim-clang-format
-" ----------------------------------------------------------------------------
-
-let g:clang_format#style_options = {
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "true",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11"}
-autocmd FileType c,cpp,objc nnoremap <F12> :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <F12> :ClangFormat<CR>
-autocmd FileType c,cpp,objc inoremap <F12> <esc>:ClangFormat<CR>
-autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 " ----------------------------------------------------------------------------
 " wildfire.vim
