@@ -57,7 +57,7 @@ Requirements
 - `cmake` Compile the ycm_core library
 - `ctags` For plugin tarbar
 - `ack-grep` For plugin ctrlsf
-- `clang-format` For plugin vim-clang-format
+- `libclang-dev` For plugin YouCompleteMe
 
 Installation
 -----
@@ -182,6 +182,9 @@ The `<leader>` key is `;`
         libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
         libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
         python3-dev ruby-dev lua5.3 lua5.3-dev libperl-dev git
+
+        sudo update-alternatives --install /usr/bin/lua lua /usr/bin/lua5.3
+        sudo update-alternatives --install /usr/bin/luac luac /usr/bin/luac5.3
         ```
 
     - openSUSE

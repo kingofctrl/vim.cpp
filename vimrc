@@ -12,6 +12,7 @@ silent! if plug#begin('~/.vim/plugged')
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
 Plug 'sheerun/vim-polyglot'
 
 " Edit
@@ -30,17 +31,6 @@ Plug 'derekwyatt/vim-protodef', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-augroup nerd_loader
-autocmd!
-autocmd VimEnter * silent! autocmd! FileExplorer
-autocmd BufEnter,BufNew *
-    \  if isdirectory(expand('<amatch>'))
-    \|   call plug#load('nerdtree')
-    \|   execute 'autocmd! nerd_loader'
-    \| endif
-augroup END
-
-
 " Lint
 Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
 
@@ -52,7 +42,7 @@ Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 function! BuildYCM(info)
 if a:info.status == 'installed' || a:info.force
-!./install.py --clang-completer
+!./install.py --clang-completer --system-libclang
 endif
 endfunction
 
@@ -221,8 +211,9 @@ if has('gui_running')
 else
     set background=light
 endif
-let g:solarized_termcolors=256
-colorschem solarized
+
+let g:molokai_original = 1
+colorschem molokai
 
 function! s:rotate_colors()
 if !exists('s:colors')
