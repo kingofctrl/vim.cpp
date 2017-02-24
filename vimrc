@@ -13,15 +13,16 @@ silent! if plug#begin('~/.vim/plugged')
 " Colors
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
+Plug 'colepeters/spacemacs-theme.vim'
 Plug 'sheerun/vim-polyglot'
 
 " Edit
 Plug 'SirVer/ultisnips'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kana/vim-operator-user'
 Plug 'gcmt/wildfire.vim'
+Plug 'lilydjwg/fcitx.vim'
 
 " Browsing
 Plug 'Yggdroot/indentLine'
@@ -30,19 +31,29 @@ Plug 'derekwyatt/vim-fswitch', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'derekwyatt/vim-protodef', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Lint
-Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
+Plug 'w0rp/ale'
 
 Plug 'fholgado/minibufexpl.vim'
 Plug 'sjl/gundo.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+
+"cd ~
+"mkdir ycm_build
+"cd ycm_build/
+"cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=~/Downloads/clang+llvm-3.9.1-x86_64-linux-gnu-ubuntu-16.04 . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp
+"cmake --build . --target ycm_core
+
+"Plug 'Valloric/YouCompleteMe'
 
 function! BuildYCM(info)
 if a:info.status == 'installed' || a:info.force
-!./install.py --clang-completer --system-libclang
+  !./install.py --clang-completer
 endif
 endfunction
 
@@ -54,7 +65,7 @@ endif
 " <<<<
 " >>>>
 " BASIC SETTINGS
-
+ 
 let mapleader = ';'
 
 set encoding=utf-8
@@ -111,9 +122,9 @@ set visualbell
 
 " Indent using four spaces
 set expandtab smarttab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 set gcr=a:block-blinkon0
 
@@ -139,11 +150,6 @@ set ruler
 set cursorline
 set cursorcolumn
 
-" Disable output, vcs, archive, rails, temp and backup files
-set wildignore+=*.o,*.out,*.obj,.git,*.pyc,*.class
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*.swp,*~,._*
-
 
 " <<<<
 " >>>>
@@ -152,6 +158,17 @@ set wildignore+=*.swp,*~,._*
 " ----------------------------------------------------------------------------
 " Basic mappings
 " ----------------------------------------------------------------------------
+  
+" Profile
+iabbrev @@ hmybmny@gmail.com
+iabbrev @b hmybmny.com
+
+" Edit myvimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Edit
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
 " Save
 inoremap <C-s>     <C-O>:w<cr>
@@ -206,29 +223,21 @@ endfunction
 " <F8> | Color scheme selector
 " ----------------------------------------------------------------------------
 "  
-if has('gui_running')
-    set background=dark
-else
-    set background=light
-endif
+set background=dark
 
 let g:molokai_original = 1
 colorschem molokai
 
 function! s:rotate_colors()
-if !exists('s:colors')
-let s:colors = s:colors()
-endif
-let name = remove(s:colors, 0)
-call add(s:colors, name)
-if has('gui_running')
-    set background=dark
-else
-    set background=light
-endif
-execute 'colorscheme' name
-redraw
-echo name
+  if !exists('s:colors')
+    let s:colors = s:colors()
+  endif
+  let name = remove(s:colors, 0)
+  call add(s:colors, name)
+  set background=dark
+  execute 'colorscheme' name
+  redraw
+  echo name
 endfunction
 
 nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
@@ -278,9 +287,8 @@ vmap <C-SPACE> <Plug>(wildfire-water)
 " ----------------------------------------------------------------------------
 " indentLine
 " ----------------------------------------------------------------------------
-
-let g:indentLine_setColors = 0
-let g:indentLine_char = '¦'
+  
+let g:indentLine_char = '│'
 
 " ----------------------------------------------------------------------------
 " tarbar
@@ -359,12 +367,34 @@ let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
 
 " ----------------------------------------------------------------------------
-" syntastic
+" vim-instant-markdown
 " ----------------------------------------------------------------------------
 
-let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+
+nnoremap <Leader>md :InstantMarkdownPreview<CR>
+
+
+" ----------------------------------------------------------------------------
+" vim-fugitive
+" ----------------------------------------------------------------------------
+
+
+" ----------------------------------------------------------------------------
+" vim-gitgutter
+" ----------------------------------------------------------------------------
+  
+set updatetime=250
+
+let g:gitgutter_sign_column_always = 1
+
+" ----------------------------------------------------------------------------
+" ale
+" ----------------------------------------------------------------------------
+
 
 " ----------------------------------------------------------------------------
 " minibufexpl
@@ -405,6 +435,10 @@ nnoremap <c-f> :CtrlSF<CR>
 " ctrlp.vim
 " ----------------------------------------------------------------------------
 
+" Disable output, vcs, archive, rails, temp and backup files
+set wildignore+=*.o,*.out,*.obj,.git,*.pyc,*.class
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*.swp,*~,._*
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 let g:ctrlp_map = '<s-p>'
@@ -416,17 +450,6 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " ----------------------------------------------------------------------------
-" vim-instant-markdown
-" ----------------------------------------------------------------------------
-
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-
-nnoremap <Leader>md :InstantMarkdownPreview<CR>
-
-" ----------------------------------------------------------------------------
 " YouCompleteMe
 " ----------------------------------------------------------------------------
 
@@ -435,9 +458,6 @@ set completeopt-=preview
 nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 inoremap <leader>; <C-x><C-o>
-
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
 
 let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0

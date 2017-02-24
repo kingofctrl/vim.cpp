@@ -57,7 +57,6 @@ Requirements
 - `cmake` Compile the ycm_core library
 - `ctags` For plugin tarbar
 - `ack-grep` For plugin ctrlsf
-- `libclang-dev` For plugin YouCompleteMe
 
 Installation
 -----
@@ -245,6 +244,7 @@ LINKS
 
 - [vim](https://github.com/vim/vim)
 - [use_vim_as_ide](https://github.com/yangyangwithgnu/use_vim_as_ide)
+- [dotfiles](https://github.com/junegunn/dotfiles)
 
 Contact
 -----
