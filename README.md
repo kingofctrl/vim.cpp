@@ -10,7 +10,8 @@ C/C++ IDE
 - [Included Plugins](#included-plugins)
     - [Colors](#colors)
     - [Editing](#editing)
-    - [Browsing](#browsing)
+    - [Navigation](#navigation)
+    - [View](#view)
     - [Linting](#linting)
     - [Formerly included plugins](#formerly-included-plugins)
 - [Keymaps](#keymaps)
@@ -89,30 +90,32 @@ I think you should read the docs of these plugins and .vimrc to use them efficie
 
 ### Editing
 - [ultisnips](https://github.com/SirVer/ultisnips): ultimate snippet solution
+- [gundo.vim](https://github.com/sjl/gundo.vim): visualise your undo tree
 - [vim-move](https://github.com/matze/vim-move): move lines and selections up and down
 - [auto-pairs](https://github.com/jiangmiao/auto-pairs): insert or delete `[]`, `()`, `""` etc. in pairs
 - [vim-operator-user](https://github.com/kana/vim-operator-user): define your own operator easily
 - [wildfire.vim](https://github.com/gcmt/wildfire.vim): smart selection of the closest text object
 - [fcitx.vim](https://github.com/lilydjwg/fcitx.vim): keep and restore fcitx state (Chinese text input method framework) when leaving/re-entering insert mode
+- [nerdcommenter](https://github.com/scrooloose/nerdcommenter): intensely orgasmic commenting
+- [vim-protodef](https://github.com/derekwyatt/vim-protodef): pull in C++ function prototypes into implementation files
+- [vim-instant-markdown](https://github.com/suan/vim-instant-markdown): open browser window when editing Markdown
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe): fast, as-you-type code-completion engine
 
-### Browsing
-- [indentLine](https://github.com/Yggdroot/indentLine): display the indention levels with thin vertical lines
+### Navigation
 - [tagbar](https://github.com/majutsushi/tagbar): display tags in a window, ordered by scope
 - [vim-fswitch](https://github.com/derekwyatt/vim-fswitch): switch between companion source files (e.g. `.h` and `.cpp`)
-- [vim-protodef](https://github.com/derekwyatt/vim-protodef): pull in C++ function prototypes into implementation files
-- [nerdcommenter](https://github.com/scrooloose/nerdcommenter): intensely orgasmic commenting
 - [nerdtree](https://github.com/scrooloose/nerdtree): filesystem tree explorer
-- [vim-instant-markdown](https://github.com/suan/vim-instant-markdown): open browser window when editing Markdown [has a component that you must install manually – see the GitHub project]
 - [vim-fugitive](https://github.com/tpope/vim-fugitive): a Git wrapper
+- [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim): fuzzy file, buffer, mru, tag, etc. finder
+- [ctrlsf.vim](https://github.com/dyng/ctrlsf.vim): search for code and edit it in-place
+- [minibufexpl.vim](https://github.com/fholgado/minibufexpl.vim): buffer explorer that takes very little screen space
+
+### View
+- [indentLine](https://github.com/Yggdroot/indentLine): display the indention levels with thin vertical lines
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter): show a Git diff in the gutter, stage/undo hunks
 
 ### Linting
 - [ale](https://github.com/w0rp/ale): as-you-type, asynchronous lint engine
-- [minibufexpl.vim](https://github.com/fholgado/minibufexpl.vim): buffer explorer that takes very little screen space
-- [gundo.vim](https://github.com/sjl/gundo.vim): visualise your undo tree
-- [ctrlsf.vim](https://github.com/dyng/ctrlsf.vim): search for code and edit it in-place
-- [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim): fuzzy file, buffer, mru, tag, etc. finder
 
 ### Formerly included plugins
 These are not included any more, but you can install them manually if you want.
