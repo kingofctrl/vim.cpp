@@ -8,6 +8,11 @@ C/C++ IDE
     - [Via curl](#via-curl)
     - [Via wget](#via-wget)
 - [Included Plugins](#included-plugins)
+    - [Colors](#colors)
+    - [Editing](#editing)
+    - [Browsing](#browsing)
+    - [Linting](#linting)
+    - [Formerly included plugins](#formerly-included-plugins)
 - [Keymaps](#keymaps)
     - [Basic](#basic)
         - [Normal mode](#normal-mode)
@@ -40,7 +45,7 @@ Features
 - Supported all GNU/Linux
 - On-demand loading for faster startup time
 - Semantic auto-completion
-- Syntax checking 
+- Syntax checking
 - Syntax highlighting for C++11/14
 - Preservation of historical records
 - Instantly preview markdown files
@@ -74,30 +79,47 @@ Included Plugins
 
 I think you should read the docs of these plugins and .vimrc to use them efficiently.
 
-- [vim-plug](https://github.com/junegunn/vim-plug): Minimalist Vim Plugin Manager
-- [vim-easy-align](https://github.com/junegunn/vim-easy-align): A Vim alignment plugin
-- [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized): precision colorscheme for the vim text editor
-- [vim-polyglot](https://github.com/sheerun/vim-polyglot): A solid language pack for Vim
-- [ultisnips](https://github.com/SirVer/ultisnips): The ultimate snippet solution for Vim
-- [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors): True Sublime Text style multiple selections for Vim
-- [vim-move](https://github.com/matze/vim-move): Plugin to move lines and selections up and down
-- [auto-pairs](https://github.com/jiangmiao/auto-pairs): Vim plugin, insert or delete brackets, parens, quotes in pair 
-- [vim-operator-user](https://github.com/kana/vim-operator-user): Vim plugin: Define your own operator easily
-- [vim-clang-format](https://github.com/rhysd/vim-clang-format): Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript and TypeScript
-- [wildfire.vim](https://github.com/gcmt/wildfire.vim): Smart selection of the closest text object
-- [indentLine](https://github.com/Yggdroot/indentLine): A vim plugin to display the indention levels with thin vertical lines
-- [tagbar](https://github.com/majutsushi/tagbar): Vim plugin that displays tags in a window, ordered by scope
-- [vim-fswitch](https://github.com/derekwyatt/vim-fswitch): Vim plug for switching between companion source files (e.g. ".h" and ".cpp")
-- [vim-protodef](https://github.com/derekwyatt/vim-protodef): Vim plugin for pulling in C++ function prototypes into implementation files
-- [nerdcommenter](https://github.com/scrooloose/nerdcommenter): Vim plugin for intensely orgasmic commenting
-- [nerdtree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for vim
-- [syntastic](https://github.com/scrooloose/syntastic): Syntax checking hacks for vim
-- [minibufexpl.vim](https://github.com/fholgado/minibufexpl.vim): Elegant buffer explorer - takes very little screen space
-- [gundo.vim](https://github.com/sjl/gundo.vim): Gundo.vim is Vim plugin to visualize your Vim undo tree
-- [ctrlsf.vim](https://github.com/dyng/ctrlsf.vim): An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
-- [ctrlp.vim](https://github.com/kien/ctrlp.vim): Fuzzy file, buffer, mru, tag, etc finder
-- [vim-instant-markdown](https://github.com/suan/vim-instant-markdown): Instant Markdown previews from VIm
-- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe): A code-completion engine for Vim
+- [vim-plug](https://github.com/junegunn/vim-plug): minimalist plugin manager
+
+### Colors
+- [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized): precision colorscheme
+- [molokai](https://github.com/tomasr/molokai): port of the monokai theme for TextMate
+- [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim): Spacemacs-flavoured theme, for use only in true-colour terminals
+- [vim-polyglot](https://github.com/sheerun/vim-polyglot): a collection of 100+ language packs
+
+### Editing
+- [ultisnips](https://github.com/SirVer/ultisnips): ultimate snippet solution
+- [vim-move](https://github.com/matze/vim-move): move lines and selections up and down
+- [auto-pairs](https://github.com/jiangmiao/auto-pairs): insert or delete `[]`, `()`, `""` etc. in pairs
+- [vim-operator-user](https://github.com/kana/vim-operator-user): define your own operator easily
+- [wildfire.vim](https://github.com/gcmt/wildfire.vim): smart selection of the closest text object
+- [fcitx.vim](https://github.com/lilydjwg/fcitx.vim): keep and restore fcitx state (Chinese text input method framework) when leaving/re-entering insert mode
+- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe): fast, as-you-type code-completion engine
+
+### Browsing
+- [indentLine](https://github.com/Yggdroot/indentLine): display the indention levels with thin vertical lines
+- [tagbar](https://github.com/majutsushi/tagbar): display tags in a window, ordered by scope
+- [vim-fswitch](https://github.com/derekwyatt/vim-fswitch): switch between companion source files (e.g. `.h` and `.cpp`)
+- [vim-protodef](https://github.com/derekwyatt/vim-protodef): pull in C++ function prototypes into implementation files
+- [nerdcommenter](https://github.com/scrooloose/nerdcommenter): intensely orgasmic commenting
+- [nerdtree](https://github.com/scrooloose/nerdtree): filesystem tree explorer
+- [vim-instant-markdown](https://github.com/suan/vim-instant-markdown): open browser window when editing Markdown [has a component that you must install manually – see the GitHub project]
+- [vim-fugitive](https://github.com/tpope/vim-fugitive): a Git wrapper
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter): show a Git diff in the gutter, stage/undo hunks
+
+### Linting
+- [ale](https://github.com/w0rp/ale): as-you-type, asynchronous lint engine
+- [minibufexpl.vim](https://github.com/fholgado/minibufexpl.vim): buffer explorer that takes very little screen space
+- [gundo.vim](https://github.com/sjl/gundo.vim): visualise your undo tree
+- [ctrlsf.vim](https://github.com/dyng/ctrlsf.vim): search for code and edit it in-place
+- [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim): fuzzy file, buffer, mru, tag, etc. finder
+
+### Formerly included plugins
+These are not included any more, but you can install them manually if you want.
+
+- *[vim-easy-align](https://github.com/junegunn/vim-easy-align): alignment plugin*
+- *[vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors): true Sublime Text style multiple selections*
+- *[vim-clang-format](https://github.com/rhysd/vim-clang-format): format C, C++, Obj-C, Java, JavaScript and TypeScript with clang-format*
 
 Keymaps
 -----
@@ -255,3 +277,5 @@ License
 -----
 
 MIT
+
+<!-- vim: set ts=4 sw=4 et: -->
