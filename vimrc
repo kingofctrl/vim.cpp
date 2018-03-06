@@ -393,7 +393,7 @@ nnoremap <Leader>md :InstantMarkdownPreview<CR>
   
 set updatetime=250
 
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " ----------------------------------------------------------------------------
 " ale
