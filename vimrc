@@ -1,12 +1,13 @@
-" >>>>
 " .vimrc of Bo Liu
+" {{{
 " https://github.com/hmybmny/vimrc
 
 set nocompatible
 
-" <<<<
-" >>>>
+" }}}
+
 " VIM-PLUG BLOCK
+" {{{
 
 silent! if plug#begin('~/.vim/plugged')
 
@@ -62,9 +63,10 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
 endif
 
-" <<<<
-" >>>>
+" }}}
+
 " BASIC SETTINGS
+" {{{
  
 let mapleader = ';'
 
@@ -151,9 +153,10 @@ set cursorline
 set cursorcolumn
 
 
-" <<<<
-" >>>>
+" }}}
+
 " MAPPINGS
+" {{{
 
 " ----------------------------------------------------------------------------
 " Basic mappings
@@ -243,9 +246,10 @@ endfunction
 nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
 inoremap <silent> <F8> <esc>:call <SID>rotate_colors()<cr>
 
-" <<<<
-" >>>>
+" }}}
+
 " PLUGINS
+" {{{
 
 " ----------------------------------------------------------------------------
 " ultisnips
@@ -466,4 +470,4 @@ let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
 
-" <<<<
+" }}}
