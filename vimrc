@@ -17,32 +17,33 @@ Plug 'tomasr/molokai'
 Plug 'colepeters/spacemacs-theme.vim'
 Plug 'sheerun/vim-polyglot'
 
-" Edit
+" Editing
 Plug 'SirVer/ultisnips'
+Plug 'sjl/gundo.vim'
 Plug 'matze/vim-move'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kana/vim-operator-user'
 Plug 'gcmt/wildfire.vim'
 Plug 'lilydjwg/fcitx.vim'
-
-" Browsing
-Plug 'Yggdroot/indentLine'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle'      }
-Plug 'derekwyatt/vim-fswitch', { 'for': ['c', 'cpp', 'objc'] }
-Plug 'derekwyatt/vim-protodef', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'derekwyatt/vim-protodef', { 'for': ['c', 'cpp', 'objc'] }
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+
+" Navigation
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'derekwyatt/vim-fswitch', { 'for': ['c', 'cpp', 'objc'] }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'fholgado/minibufexpl.vim'
+
+" View
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 
-" Lint
+" Linting
 Plug 'w0rp/ale'
-
-Plug 'fholgado/minibufexpl.vim'
-Plug 'sjl/gundo.vim'
-Plug 'dyng/ctrlsf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 
 "cd ~
 "mkdir ycm_build
