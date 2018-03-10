@@ -67,11 +67,11 @@ Installation
 
 ### Via curl
 
-    curl -o - https://raw.githubusercontent.com/HmyBmny/vimrc/master/install-vim-plugins | sh
+    curl -o - https://raw.githubusercontent.com/hmybmny/vimrc/master/install-vim-plugins | sh
 
 ### Via wget
 
-    wget -O - https://raw.githubusercontent.com/HmyBmny/vimrc/master/install-vim-plugins | sh
+    wget -O - https://raw.githubusercontent.com/hmybmny/vimrc/master/install-vim-plugins | sh
 
 Included Plugins
 -----
