@@ -36,8 +36,6 @@ Introduction
 
 Building vim editor in Linux into an effective C/C++ programming IDE, supporting [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) as a code-completion engine.
 
-![screenshot](screenshot.png)
-
 Features
 -----
 
